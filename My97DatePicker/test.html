@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="webkit" name="renderer">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--mystyle-->
+     <link rel="stylesheet" href="../css/teststyle.css">
+    <!--My97DatePicker-->
+    <script src="My97DatePicker/WdatePicker.js"></script>
+    <title>Title</title>
+</head>
+<body class="mgauto w-1200">
+    <h4>官网 </h4>
+    <a href="http://www.my97.net/dp/demo/index.htm">http://www.my97.net/dp/demo/index.htm</a>
+    <br>
+    <h4 class="mt-10">效果</h4>
+    <input type="text" class="Wdate use97 w-300 ml-40 mb-10">
+    <h4>结构</h4>
+    <pre>
+    &lt;input type="text" class="Wdate use97 w-300"&gt;
+    </pre>
+    <h4>调用：以下举例常用接口，根据需要使用</h4>
+    <pre>
+       引入： <script src="My97DatePicker/WdatePicker.js"></script>
+         $(document).ready(function () {
+            $(".use97").focus(function () {
+                WdatePicker({
+                    dateFmt:'您选择的日期是:yyyy年MM月dd日 HH时mm分', //格式配置
+                    skin:'zxjorange',                                                   //皮肤
+                    isShowToday:false,			                            //显示"当前"
+                    isShowClear:false,		                                //显示"清除"
+                    firstDayOfWeek:1,                                           //周的第一天（周：从周一开始显示）
+                    minDate:"2016-04-26 00:00:00",                          //可用的起始时间
+                    maxDate:"2016-04-30 00:00:00",                          //可用的结束时间
+                    autoPickDate:true,                                      //true，选定日期即可自动输入
+                    onpicked:function(dp){                                  //选中回调
+                        var val=dp.cal.getDateStr();                        //取值
+                    }
+                })
+            });
+
+        })
+    </pre>
+    <h4>更改皮肤方法</h4>
+    <pre>
+    1.找到My97DatePicker\WdatePicker.js
+
+    2.$skinList数组中增加配置 {name:"皮肤名",charset:"gb2312"}
+
+    3.My97DatePicker\skin 下新建相关皮肤文件夹    eg: zxjorange(建议拷贝样式及图片做更改)
+
+        <img src="../../../images/my97.png">
+
+    4.调用时skin:"皮肤名"
+
+    </pre>
+
+
+    <script>
+        $(document).ready(function () {
+            //去标签
+            $("pre").each(function(){
+                var thishtml = $(this).html();
+                var reg1= /\</g;
+                var reg2 = /\>/g;
+                thishtml=thishtml.replace(reg1,"&lt;");
+                thishtml=thishtml.replace(reg2,"&gt;");
+                $(this).html(thishtml);
+            });
+            $(".use97").focus(function () {
+                WdatePicker({
+                    dateFmt:'您选择的日期是:yyyy年MM年dd日 HH时mm分',//格式配置
+                    skin:'zxjorange',                             //皮肤
+                    isShowToday:false,			                //显示"当前"
+                    isShowClear:false,		                    //显示"清除"
+                    firstDayOfWeek:1,                             //周的第一天
+                    minDate:"2016-04-26 00:00:00",
+                    maxDate:"2016-04-30 00:00:00",
+                    autoPickDate:true,                           //true，选定日期即可自动输入
+                    onpicked:function(dp){
+
+                        var val=dp.cal.getDateStr();
+//                        alert(val)
+                    }
+                })
+            });
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+    "data": [
+        {
+            "index": "1",
+             "bianhao": "Tiger Nixon",
+              "bianhao1": "Tiger Nixon",
+              "jingli": "Tiger Nixon",
+               "jingli1": "Tiger Nixon",
+                "jingli2": "Tiger Nixon",
+                 "jingli3": "Tiger Nixon",
+                  "jingli4": "Tiger Nixon",
+                   "jingli5": "Tiger Nixon",
+                    "jingli6": "Tiger Nixon",
+                     "jingli7": "Tiger Nixon",
+                      "jingli8": "Tiger Nixon",
+                       "tijiao0": "Tiger Nixon",
+                        "tijiao1": "Tiger Nixon",
+                        "beizhu": "Tiger Nixon",
+
+            "caozuo": {
+                "del": "删除",
+                "check": "查看"
+            }
+
+        },
+        {
+                    "index": "2",
+                     "bianhao": "Tiger Nixon",
+                     "bianhao1": "Tiger Nixon",
+                      "jingli": "Tiger Nixon",
+                       "jingli1": "Tiger Nixon",
+                        "jingli2": "Tiger Nixon",
+                         "jingli3": "Tiger Nixon",
+                          "jingli4": "Tiger Nixon",
+                           "jingli5": "Tiger Nixon",
+                            "jingli6": "Tiger Nixon",
+                             "jingli7": "Tiger Nixon",
+                              "jingli8": "Tiger Nixon",
+                               "tijiao0": "Tiger Nixon",
+                                "tijiao1": "Tiger Nixon",
+                                "beizhu": "Tiger Nixon",
+
+                    "caozuo": {
+                        "del": "删除",
+                        "check": "查看"
+
+                    }
+
+                },
+        {
+                    "index": "3",
+                     "bianhao": "Tiger Nixon",
+                     "bianhao1": "Tiger Nixon",
+                      "jingli": "Tiger Nixon",
+                       "jingli1": "Tiger Nixon",
+                        "jingli2": "Tiger Nixon",
+                         "jingli3": "Tiger Nixon",
+                          "jingli4": "Tiger Nixon",
+                           "jingli5": "Tiger Nixon",
+                            "jingli6": "Tiger Nixon",
+                             "jingli7": "Tiger Nixon",
+                              "jingli8": "Tiger Nixon",
+                               "tijiao0": "Tiger Nixon",
+                                "tijiao1": "Tiger Nixon",
+                                "beizhu": "Tiger Nixon",
+
+                    "caozuo": {
+                        "del": "删除",
+                        "check": "查看"
+
+                    }
+
+                }
+
+    ]
+}

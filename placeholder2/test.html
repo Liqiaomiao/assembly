@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="webkit" name="renderer">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <!--mystyle-->
+    <link rel="stylesheet" href="../css/teststyle.css">
+    <title>Title</title>
+</head>
+<body class="w-1200 mgauto">
+
+
+<form class="inputPlaceholder mb-10">
+    <h4>模拟浏览器自带placeholder</h4>
+    <label >用户名：</label>
+    <input type="text" placeholder="请输入用户名"/>
+    <label >密码：</label>
+    <input type="text" placeholder="请输入密码"/>
+</form>
+<form class="unified mb-10 ">
+    <h4>统一样式</h4>
+    <label class="lh-20" >用户名：</label>
+    <input type="text" placeholdername="请输入用户名"/>
+    <label class="lh-20">密码：</label>
+    <input type="text" placeholdername="请输入密码"/>
+</form>
+
+<h4>模拟浏览器自带placeholder:结构</h4>
+<pre>
+    <input type="text" placeholder="请输入用户名"/>
+</pre>
+<h4>模拟浏览器自带placeholder:方法</h4>
+<pre>
+inputPlaceholder($(".inputPlaceholder input[placeholder]"));
+function inputPlaceholder(obj) {
+    if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+        $(obj).focus(function() {
+            var input = $(this);
+            if (input.val() == input.attr('placeholder')) {
+                input.val('');
+                input.removeClass('placeholder');
+            }
+        }).blur(function() {
+            var input = $(this);
+            if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                input.addClass('placeholder');
+                input.val(input.attr('placeholder'));
+            }
+        }).blur();
+    }
+
+}
+    // 判断浏览器是否支持 placeholder
+    function placeholderSupport() {
+        return 'placeholder' in document.createElement('input');
+    }
+</pre>
+
+<h4>统一样式:结构</h4>
+<pre>
+<input type="text" placeholdername="请输入用户名"/>
+</pre>
+<h4>统一样式:方法</h4>
+<pre>
+    unifiedPlaceholder($(".unified input[placeholdername]"));
+    function unifiedPlaceholder(obj) {
+        $(obj).each(function () {
+            $(this).wrap('<div class="inputPlaceholderWraper"></div>');
+            var attrctxt = $(this).attr("placeholdername");
+            var ctxtstr = '<span class="ctxtstr">'+attrctxt+'</span>';
+            $(this).after($(ctxtstr));
+            $(this).on("input propertychange",function () {
+                var val = $(this).val();
+                if(val!=""){
+                    $(this).siblings(".ctxtstr").hide();
+                }else{
+                    $(this).siblings(".ctxtstr").show();
+                }
+
+            }).on("blur",function () {
+                var val = $(this).val();
+                if(val==""){
+                    $(this).siblings(".ctxtstr").show();
+                }
+            });
+            $(this).siblings(".ctxtstr").click(function () {
+                $(this).siblings("input").trigger('focus');
+            })
+        })
+
+    }
+</pre>
+<script>
+$(document).ready(function () {
+    //去标签
+    $("pre").each(function(){
+        var thishtml = $(this).html();
+        var reg1= /\</g;
+        var reg2 = /\>/g;
+        thishtml=thishtml.replace(reg1,"&lt;");
+        thishtml=thishtml.replace(reg2,"&gt;");
+        $(this).html(thishtml);
+    });
+    //统一样式
+    unifiedPlaceholder($(".unified input[placeholdername]"));
+    //模拟
+    inputPlaceholder($(".inputPlaceholder input[placeholder]"));
+})
+function inputPlaceholder(obj) {
+    if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+        $(obj).focus(function() {
+            var input = $(this);
+            if (input.val() == input.attr('placeholder')) {
+                input.val('');
+                input.removeClass('placeholder');
+            }
+        }).blur(function() {
+            var input = $(this);
+            if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                input.addClass('placeholder');
+                input.val(input.attr('placeholder'));
+            }
+        }).blur();
+    }
+
+}
+
+    function placeholderSupport() {
+        return 'placeholder' in document.createElement('input');
+    }
+    function unifiedPlaceholder(obj) {
+        $(obj).each(function () {
+            $(this).wrap('<div class="inputPlaceholderWraper"></div>');
+            var attrctxt = $(this).attr("placeholdername");
+            var ctxtstr = '<span class="ctxtstr">'+attrctxt+'</span>';
+            $(this).after($(ctxtstr));
+            $(this).on("input propertychange",function () {
+                var val = $(this).val();
+                if(val!=""){
+                    $(this).siblings(".ctxtstr").hide();
+                }else{
+                    $(this).siblings(".ctxtstr").show();
+                }
+
+            }).on("blur",function () {
+                var val = $(this).val();
+                if(val==""){
+                    $(this).siblings(".ctxtstr").show();
+                }
+            });
+            $(this).siblings(".ctxtstr").click(function () {
+                $(this).siblings("input").trigger('focus');
+            })
+        })
+
+    }
+</script>
+</body>
+</html>

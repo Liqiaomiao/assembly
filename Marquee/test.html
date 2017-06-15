@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="webkit" name="renderer">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--marquee-->
+    <script type="text/javascript" src="Marquee.js"></script>
+    <!--mystyle-->
+    <link rel="stylesheet" href="../css/teststyle.css">
+    <title>Title</title>
+</head>
+<body class="w-1200 mgauto">
+<h4>效果</h4>
+<div class="index_banner_box">
+    <div class="index_banner">
+        <ul>
+            <li>
+                <img src="../images/banner0.png">
+                <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+            </li>
+            <li>
+                 <img src="../images/banner0.png">
+                <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+            </li>
+            <li>
+                 <img src="../images/banner0.png">
+                <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+            </li>
+            <li>
+                 <img src="../images/banner0.png">
+                <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+            </li>
+        </ul>
+
+    </div>
+    <div>
+        <a id="goL" href="javascript:;">《</a>
+        <a  id="goR"  href="javascript:;">》</a>
+    </div>
+    <div class="circles" id="marqueeNav"> </div>
+</div>
+<div class="ctxt">
+    <ul>
+        <li>1.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>2.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>3.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>4.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>5.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>6.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>7.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>8.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>9.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>10.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>11.testtesttesttesttesttesttesttesttesttesttesttest</li>
+        <li>12.testtesttesttesttesttesttesttesttesttesttesttest</li>
+    </ul>
+</div>
+<h4>结构</h4>
+<pre>
+    <div class="index_banner_box">
+        <div class="index_banner">
+            <ul>
+                <li>
+                    <img src="../images/banner0.png">
+                    <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+                </li>
+                <li>
+                     <img src="../images/banner0.png">
+                    <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+                </li>
+                <li>
+                     <img src="../images/banner0.png">
+                    <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+                </li>
+                <li>
+                     <img src="../images/banner0.png">
+                    <h1>天津市红桥区湘潭道1号卓朗科技园区</h1>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <a href="#" id="goL2">《《</a>
+            <a href="#" id="goR2">》》</a>
+        </div>
+        <div class="circles" id="marqueeNav2">
+    </div>
+</div>
+</pre>
+<h4>调用</h4>
+<pre>
+    引入
+    &lt;script type="text/javascript" src="Marquee.js"&gt;&lt;/script&gt;
+
+     $('.index_banner').kxbdSuperMarquee({
+            isAuto:false,
+            distance:648,//一次滚动的距离
+            time:3,//停顿时间，单位为秒
+            btnGo:{left:'#goL',right:'#goR'},
+            direction:'left',
+            navId:'#marqueeNav
+        });
+    $(".ctxt").kxbdSuperMarquee({
+            scrollDelay:20,//时长，单位为毫秒
+            direction:"up",
+            isMarquee:true//是否为Marquee
+        })
+</pre>
+</body>
+<script>
+    $(document).ready(function () {
+        //去标签
+        $("pre").each(function(){
+            var thishtml = $(this).html();
+            var reg1= /\</g;
+            var reg2 = /\>/g;
+            thishtml=thishtml.replace(reg1,"&lt;");
+            thishtml=thishtml.replace(reg2,"&gt;");
+            $(this).html(thishtml);
+        });
+        //轮播
+        $('.index_banner').kxbdSuperMarquee({
+            isAuto:false,
+            distance:648,
+            time:3,
+            btnGo:{left:'#goL',right:'#goR'},
+            direction:'left',
+            navId:'#marqueeNav'
+        });
+        $(".ctxt").kxbdSuperMarquee({
+            scrollDelay:20,//时长，单位为毫秒
+            direction:"up",
+            isMarquee:true
+        })
+    })
+</script>
+</html>

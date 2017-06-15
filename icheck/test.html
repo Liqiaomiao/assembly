@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="webkit" name="renderer">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--icheck-->
+    <link rel="stylesheet" href="skins/minimal/blue.css">
+    <link rel="stylesheet" href="skins/minimal/orange.css">
+    <script src="icheck.js"></script>
+    <link rel="stylesheet" href="../../../css/teststyle.css">
+    <title>Title</title>
+</head>
+<body class="w-1200 mgauto">
+    <h4>官网 </h4>
+    <a href="http://www.bootcss.com/p/icheck/" class="f-s-15">http://www.bootcss.com/p/icheck/</a>
+    <br>
+    <h4 class="mt-10">效果</h4>
+    <div class="dis-table mb-10 pl-20">
+        <label>
+            <span>默认</span>
+            <input type="checkbox">
+        </label>
+        <label>
+            <span>选中</span>
+            <input type="checkbox" checked="">
+        </label>
+        <label>
+            <span>禁止使用并选中</span>
+            <input type="checkbox" disabled="" checked="">
+        </label>
+    </div>
+    <div class="dis-table mb-10 pl-20">
+        <label>
+            <span>默认</span>
+            <input type="radio"  name="iCheck">
+        </label>
+        <label>
+            <span>选中</span>
+            <input type="radio" checked=""  name="iCheck">
+        </label>
+        <label >
+            <span>禁止使用并选中</span>
+            <input type="radio" disabled="" checked=""  name="iCheck">
+        </label>
+    </div>
+    <h4>结构</h4>
+    <pre>
+
+        <label><span>默认</span><input type="checkbox"></label>
+        <label><span>选中</span><input type="checkbox" checked=""></label>
+        <label><span>禁止使用并选中</span><input type="checkbox" disabled="" checked=""></label>
+
+        <label><span>默认</span><input type="radio"  name="name"></label>
+        <label><span>选中</span><input type="radio" checked=""  name="name"></label>
+        <label ><span>禁止使用并选中</span><input type="radio" disabled="" checked=""  name="name"></label>
+    </pre>
+    <h4>调用</h4>
+    <pre>
+        <link rel="stylesheet" href="skins/minimal/blue.css">
+        <link rel="stylesheet" href="skins/minimal/orange.css">
+        <script src="icheck.js"></script>
+
+
+         $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',    // 根据肤色引入skins/minimal/blue.css
+            radioClass: 'iradio_minimal-orange'          // 根据肤色引入skins/minimal/orange.css
+        });
+        常用方法：ifChecked 、ifUnchecked（其他详情参阅官网）
+          $('input').on('ifChecked', function(event){
+            //alert(event.type);
+        });
+    </pre>
+
+<script>
+    $(document).ready(function () {
+        //去标签
+        $("pre").each(function(){
+            var thishtml = $(this).html();
+            var reg1= /\</g;
+            var reg2 = /\>/g;
+            thishtml=thishtml.replace(reg1,"&lt;");
+            thishtml=thishtml.replace(reg2,"&gt;");
+            $(this).html(thishtml);
+        });
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-orange'
+        });
+        $('input').on('ifChecked', function(event){
+           // alert(event.type);
+        });
+    })
+</script>
+</body>
+</html>
