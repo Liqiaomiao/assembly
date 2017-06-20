@@ -125,7 +125,7 @@
                     { "orderable": false, "targets": 1 }
                 ],
 
-                dom: '<"top"if>rt<"bottom"lp><"clear">',       //匹配表格结构
+                dom: '<"top"if>rt<"bottom"lp><"clear">',       //匹配表格结构 
                 /*i: Showing 1 to 5 of 6 entries，f:search input，r加载进度，t表格，l每页显示行数，p分页，*/
                 fnDrawCallback:  function(){                      //表格画完后的回调
                 },
@@ -184,7 +184,7 @@
                 },
                 { "orderable": false, "targets": 1 }
             ],
-            dom: '<"top"if>r<"tabletest"t><"bottom"lp><"clear">',       //匹配表格结构
+            dom: '<"top"if>r<"tabletest"t><"bottom"lp><"clear">',       //匹配表格结构 参考https://datatables.net/examples/basic_init/dom.html
             /*
              i: Showing 1 to 5 of 6 entries
              f:search input
@@ -197,7 +197,14 @@
             },
             "language": {
                 "emptyTable": "暂无数据"
-            }
+            },
+            "createdRow": function( row, data, dataIndex ) {
+                 if ( dataIndex%2==0 ) {
+                     $(row).addClass( 'redbg' );
+                 }else{
+                     $(row).addClass( 'greenbg' );
+				 }
+             }
 
         });
     })
