@@ -125,10 +125,17 @@
                     { "orderable": false, "targets": 1 }
                 ],
 
-                dom: '<"top"if>rt<"bottom"lp><"clear">',       //匹配表格结构 
+                dom: '<"top"if>rt<"bottom"lp><"clear">',       //匹配表格结构 https://datatables.net/examples/basic_init/dom.html
                 /*i: Showing 1 to 5 of 6 entries，f:search input，r加载进度，t表格，l每页显示行数，p分页，*/
                 fnDrawCallback:  function(){                      //表格画完后的回调
                 },
+		 "createdRow": function( row, data, dataIndex ) {//隔行加class名
+                 if ( dataIndex%2==0 ) {
+                     $(row).addClass( 'redbg' );
+                 }else{
+                     $(row).addClass( 'greenbg' );
+				 }
+             }
 
             });
 
