@@ -4,6 +4,7 @@
  */
 var $dp,WdatePicker;(function(){var $={
 $langList:[
+ {name:"zh-cn1",charset:"UTF-8"},
  {name:"en",charset:"UTF-8"},
  {name:"zh-cn",charset:"gb2312"},
  {name:"zh-tw",charset:"GBK"}],
