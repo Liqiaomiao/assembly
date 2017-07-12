@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta content="webkit" name="renderer">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link rel="stylesheet" href="../css/common.css">
-    <script src="../js/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <script src="../../libs/jquery-1.11.1.min.js"></script>
     <!--mystyle-->
-     <link rel="stylesheet" href="../css/teststyle.css">
+     <link rel="stylesheet" href="../../../css/teststyle.css">
     <!--My97DatePicker-->
     <script src="My97DatePicker/WdatePicker.js"></script>
     <title>Title</title>
@@ -31,12 +30,14 @@
                 WdatePicker({
                     dateFmt:'您选择的日期是:yyyy年MM月dd日 HH时mm分', //格式配置
                     skin:'zxjorange',                                                   //皮肤
-                    isShowToday:false,			                            //显示"当前"
+                    <!--isShowToday:false,			                            //显示"当前"-->
                     isShowClear:false,		                                //显示"清除"
                     firstDayOfWeek:1,                                           //周的第一天（周：从周一开始显示）
                     minDate:"2016-04-26 00:00:00",                          //可用的起始时间
-                    maxDate:"2016-04-30 00:00:00",                          //可用的结束时间
+                     maxDate:"2017-09-30 00:00:00",                          //可用的结束时间
                     autoPickDate:true,                                      //true，选定日期即可自动输入
+                    lang:"zh-cn1",      //WdatePicker.js     1.$langList 增加     {name:"zh-cn1",charset:"UTF-8"},
+                                        //2.lang目录下增加zh-cn1.js
                     onpicked:function(dp){                                  //选中回调
                         var val=dp.cal.getDateStr();                        //取值
                     }
@@ -72,24 +73,26 @@
                 $(this).html(thishtml);
             });
             $(".use97").focus(function () {
+
+
                 WdatePicker({
                     dateFmt:'您选择的日期是:yyyy年MM年dd日 HH时mm分',//格式配置
                     skin:'zxjorange',                             //皮肤
-                    isShowToday:false,			                //显示"当前"
+//                    isShowToday:false,			                //显示"当前"
                     isShowClear:false,		                    //显示"清除"
                     firstDayOfWeek:1,                             //周的第一天
                     minDate:"2016-04-26 00:00:00",
-                    maxDate:"2016-04-30 00:00:00",
+                    maxDate:"2017-09-30 00:00:00",
                     autoPickDate:true,                           //true，选定日期即可自动输入
+                    lang:"zh-cn1",
                     onpicked:function(dp){
-
                         var val=dp.cal.getDateStr();
-//                        alert(val)
                     }
                 })
             });
 
         })
+
     </script>
 </body>
 </html>
